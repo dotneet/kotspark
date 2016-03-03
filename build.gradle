@@ -1,0 +1,19 @@
+group 'net.devneko'
+version '1.0-SNAPSHOT'
+
+buildscript {
+    repositories {
+        mavenCentral()
+    }
+    dependencies {
+        classpath "org.jetbrains.kotlin:kotlin-gradle-plugin:1.0.0-beta-4589"
+    }
+}
+
+apply plugin: 'kotlin'
+
+dependencies {
+    compile "org.jetbrains.kotlin:kotlin-stdlib:1.0.0-beta-4589"
+    compile 'com.google.code.gson:gson:2.5'
+    compile 'com.sparkjava:spark-core:2.3'
+}
