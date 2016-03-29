@@ -35,6 +35,11 @@ class Router
         RouterHelper.sparkHead("$pathPrefix$path", c, func)
     }
 
+    inline fun <reified T:Any> options(path:String, func: KFunction3<T, Request, Response, String>) {
+        val c:T = T::class.constructors.first().call()
+        RouterHelper.sparkOptions("$pathPrefix$path", c, func)
+    }
+
     inline fun <reified T:Any> trace(path:String, func: KFunction3<T, Request, Response, String>) {
         val c:T = T::class.constructors.first().call()
         RouterHelper.sparkTrace("$pathPrefix$path", c, func)

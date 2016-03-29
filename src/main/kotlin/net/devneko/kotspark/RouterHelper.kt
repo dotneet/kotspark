@@ -37,6 +37,12 @@ object RouterHelper {
         })
     }
 
+    fun <T> sparkOptions(path:String, controller:T, memberFunc: KFunction3<T, Request, Response, String>) {
+        Spark.options(path, fun(req: spark.Request, res: spark.Response): String {
+            return memberFunc.call(controller, req, res)
+        })
+    }
+
     fun <T> sparkTrace(path:String, controller:T, memberFunc: KFunction3<T, Request, Response, String>) {
         Spark.trace(path, fun(req: spark.Request, res: spark.Response): String {
             return memberFunc.call(controller, req, res)
